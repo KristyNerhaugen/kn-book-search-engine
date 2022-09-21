@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 //import SAVE_BOOK mutation
 import { SAVE_BOOK } from "../../utils/mutations";
+
 import {
   Jumbotron,
   Container,
@@ -14,7 +15,7 @@ import {
 } from "react-bootstrap";
 
 import Auth from "../utils/auth";
-import { saveBook, searchGoogleBooks } from "../utils/API";
+import { searchGoogleBooks } from "../utils/API";
 import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
 
 const SearchBooks = () => {
@@ -81,7 +82,7 @@ const SearchBooks = () => {
 
     try {
       const response = await saveBook({
-        variables: { bookInfo },
+        variables: { bookData: { ...booktoSave } },
       });
 
       if (!response.ok) {
