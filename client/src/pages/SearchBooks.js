@@ -14,7 +14,8 @@ import {
 } from "react-bootstrap";
 
 import Auth from "../utils/auth";
-import { searchGoogleBooks } from "../utils/API";
+// useEffect can fetch so that searchGoogleBooks isn't needed
+// import { searchGoogleBooks } from "../utils/API";
 import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
 
 const SearchBooks = () => {
@@ -44,7 +45,10 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await searchGoogleBooks(searchInput);
+      // googleapis URL pulled from provided API.js but passing in searchInput to reflect the search
+      const response = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${searchInput}`
+      );
 
       if (!response.ok) {
         throw new Error("something went wrong!");
