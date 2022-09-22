@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-// importing useMutation hook
 import { useMutation } from "@apollo/client";
 //import SAVE_BOOK mutation
-import { SAVE_BOOK } from "../../utils/mutations";
+import { SAVE_BOOK } from "../utils/mutations";
 
 import {
   Jumbotron,
