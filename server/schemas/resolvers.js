@@ -41,11 +41,11 @@ const resolvers = {
       return { token, user };
     },
     // saveBook mutation
-    saveBook: async (parent, { bookInfo }, context) => {
+    saveBook: async (parent, { bookData }, context) => {
       if (context.user) {
-        const savedBook = await User.findOneAndUpdate(
+        const savedBook = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { savedBooks: bookInfo } },
+          { $push: { savedBooks: bookData } },
           { new: true, runValidators: true }
         );
 
@@ -59,7 +59,7 @@ const resolvers = {
     // removeBook mutation
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
-        const removeBook = await User.findOneAndUpdate(
+        const removeBook = await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $pull: { savedBooks: { bookId } } }
         );
