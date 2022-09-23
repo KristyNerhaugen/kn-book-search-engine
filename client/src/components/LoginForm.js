@@ -46,7 +46,7 @@ const LoginForm = () => {
     }
 
     setUserFormData({
-      username: "",
+      // username not needed becuase it isn't on the front end for login username: "",
       email: "",
       password: "",
     });
