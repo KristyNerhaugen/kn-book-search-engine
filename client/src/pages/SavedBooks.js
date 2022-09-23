@@ -19,8 +19,8 @@ import { REMOVE_BOOK } from "../utils/mutations";
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
-  const { removeBook } = useMutation(REMOVE_BOOK);
-  const userData = data?.me || data?.user || {};
+  const [removeBook] = useMutation(REMOVE_BOOK);
+  const userData = data?.me || {};
 
   // use this to determine if `useEffect()` hook needs to run again
   //const userDataLength = Object.keys(userData).length;
@@ -97,7 +97,7 @@ const SavedBooks = () => {
             : "You have no saved books!"}
         </h2>
         <CardColumns>
-          {userData.savedBooks.map((book) => {
+          {userData.savedBooks?.map((book) => {
             return (
               <Card key={book.bookId} border="dark">
                 {book.image ? (
