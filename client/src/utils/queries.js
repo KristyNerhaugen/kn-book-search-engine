@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 // GET_ME query
 export const GET_ME = gql`
-{
+  {
     me {
       _id
       username
@@ -16,5 +16,6 @@ export const GET_ME = gql`
         image
         link
       }
+    }
   }
 `;
