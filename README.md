@@ -24,7 +24,7 @@
 
 ### This image shows the application:
 
-### ![KN-Book-Search-Engine]()
+### ![KN-Book-Search-Engine](/client/src/assets/images/screenshot.png)
 
 ## Credits
 
